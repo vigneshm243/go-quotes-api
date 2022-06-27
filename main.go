@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gocolly/colly"
 )
@@ -70,5 +71,5 @@ func main(){
 	fmt.Println("quote")
 	// router.GET("/quotes", getQuotes) 
 	router.GET("/quotes/:search", getQuoteSearch) 
-	router.Run("localhost:9091")
+	router.Run()
 }
