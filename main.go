@@ -12,18 +12,7 @@ import (
 type quote struct{
 	Author string `json:"author"`
 	Quote string `json:"quote"`
-	Book string `json:"book"`
 }
-
-// var quotes = []quote{
-// 	{Author: "writer1", Quote: "quote1", Book: "book1"},
-// 	{Author: "writer2", Quote: "quote2", Book: "book2"},
-// 	{Author: "writer3", Quote: "quote3", Book: "book3"},
-// }
-
-// func getQuotes(context *gin.Context){
-// 	context.IndentedJSON(http.StatusOK, quotes)
-// }
 
 func getQuoteSearch(context *gin.Context){
 	search := context.Param("search")
@@ -38,8 +27,6 @@ func getQuoteSearch(context *gin.Context){
 	c.OnHTML(".quoteDetails", func(e *colly.HTMLElement) {
 		res := contentRegexp.FindAllStringSubmatch(e.ChildText("div.quoteText"), -1)
 
-		// it's pretty ugly, but, works ( make sure that we can access
-		// that slice's slot )
 		if len(res) < 1 {
 			return
 		}
@@ -68,8 +55,6 @@ func getQuoteSearch(context *gin.Context){
 
 func main(){
 	router := gin.Default()
-	fmt.Println("quote")
-	// router.GET("/quotes", getQuotes) 
 	router.GET("/quotes/:search", getQuoteSearch) 
 	router.Run()
 }
