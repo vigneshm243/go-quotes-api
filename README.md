@@ -58,6 +58,6 @@ This create the Heroku app and pushes the code.
 
 Heroku takes this code runs the build and exposes the app at https://<app-name>.herokuapp.com/
 
-My app is available at https://go-quote-app.herokuapp.com/quotes/dumbledore
+My app is available at https://go-quote-api.herokuapp.com/quotes/dumbledore
 
 The last word can be replaced with any search criteria to search for quotes from your favorite character or book.
